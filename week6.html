@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Interactive PLP Sample</title>
+  <link rel="stylesheet" href="styler.css/style.css" />
+  <link rel="stylesheet" href="javascript.js/script.js" />
+</head>
+<body>
+
+  <header class="site-header">
+    <h1>PLP Interactive Page</h1>
+    <p class="tagline">Example page with a form, tabs, accordion, and live validation</p>
+  </header>
+
+  <main class="container">
+
+    <!-- Tabs / Interactive Section -->
+    <section id="features" class="card">
+      <h2>Features (Tabs)</h2>
+      <div class="tabs">
+        <div class="tab-buttons" role="tablist" aria-label="Feature tabs">
+          <button class="tab-btn active" data-target="tab-1" role="tab" aria-selected="true">Overview</button>
+          <button class="tab-btn" data-target="tab-2" role="tab" aria-selected="false">How it works</button>
+          <button class="tab-btn" data-target="tab-3" role="tab" aria-selected="false">Examples</button>
+        </div>
+        <div class="tab-panels">
+          <div id="tab-1" class="tab-panel active" role="tabpanel">Quick overview of the product and main value.</div>
+          <div id="tab-2" class="tab-panel" role="tabpanel">Step-by-step workflow & screenshots (placeholder).</div>
+          <div id="tab-3" class="tab-panel" role="tabpanel">Use cases and short examples showing the product in action.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Accordion / FAQ -->
+    <section id="faq" class="card">
+      <h2>FAQ (Accordion)</h2>
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-header">What problem does this solve?</button>
+          <div class="accordion-panel">It centralizes examples so developers can preview and test templates quickly.</div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">Is it customizable?</button>
+          <div class="accordion-panel">Yes — every component here can be modified and extended.</div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">Can I save submissions?</button>
+          <div class="accordion-panel">Yes — submissions persist to localStorage for demo purposes.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact / Custom Form -->
+    <section id="contact" class="card">
+      <h2>Contact & Request Demo</h2>
+      <form id="contactForm" novalidate>
+        <div class="form-row">
+          <label for="name">Full name</label>
+          <input id="name" name="name" type="text" placeholder="Jane Doe" />
+          <small class="error" id="nameError"></small>
+        </div>
+
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" />
+          <small class="error" id="emailError"></small>
+        </div>
+
+        <div class="form-row">
+          <label for="phone">Phone (optional)</label>
+          <input id="phone" name="phone" type="tel" placeholder="+254712345678" />
+          <small class="error" id="phoneError"></small>
+        </div>
+
+        <div class="form-row">
+          <label for="service">Service interested in</label>
+          <select id="service" name="service">
+            <option value="">Choose a service...</option>
+            <option value="pilot">Pilot implementation</option>
+            <option value="consult">Consulting</option>
+            <option value="invest">Partnership / Investment</option>
+          </select>
+          <small class="error" id="serviceError"></small>
+        </div>
+
+        <div class="form-row">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Tell us about your needs..."></textarea>
+          <div class="meta-row">
+            <span id="charCount">0</span>/500 characters
+            <button id="previewBtn" type="button" class="small">Live preview</button>
+          </div>
+          <small class="error" id="messageError"></small>
+        </div>
+
+        <div class="form-row checkbox-row">
+          <input id="terms" name="terms" type="checkbox" />
+          <label for="terms">I agree to be contacted. (required)</label>
+          <small class="error" id="termsError"></small>
+        </div>
+
+        <div class="form-actions">
+          <button id="submitBtn" type="submit" class="primary">Send Request</button>
+          <button id="clearBtn" type="button" class="muted">Clear</button>
+        </div>
+      </form>
+
+      <!-- Live preview modal (hidden by default) -->
+      <div id="previewModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="previewTitle">
+        <div class="modal-content">
+          <h3 id="previewTitle">Message Preview</h3>
+          <div id="previewBody"></div>
+          <div class="modal-actions">
+            <button id="closePreview" class="small">Close</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Submissions list (dynamic) -->
+    <section id="submissions" class="card">
+      <h2>Submissions (saved locally)</h2>
+      <ul id="submissionList" class="submission-list">
+        <!-- dynamically generated -->
+      </ul>
+      <div class="muted">Submissions persist in your browser (localStorage).</div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <small>Built for demo — PLP Standard Template demo</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
